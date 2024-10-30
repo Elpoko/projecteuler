@@ -46,6 +46,11 @@ def firstn(n):
         yield num
         num += 1
     
-a = firstn(20)
-for a in a:
-    print(a)
+# a = firstn(20)
+# for a in a:
+#     print(a)
+
+doubles = [2 * n for n in range(50)]
+print(doubles)
+doubles = list(2*n for n in range(50))
+print(doubles)
