@@ -1,3 +1,4 @@
+import time
 def check_if_abundant(n):
     sum_of_factors = sum(x + (n / x) for x in range(2, int(n**0.5) + 1) if n % x == 0) + 1
     if (n**0.5) % 1 == 0:
@@ -61,7 +62,9 @@ def problem_23(N=28123):
                 abundant_sums.add(n)
 
     return sum(n for n in range(N) if n not in abundant_sums)
-
+then = time.time()
 r = problem_23()
+now = time.time()
 print(r)
-# fast!
+print(now - then)
+# fast! 0.06s
