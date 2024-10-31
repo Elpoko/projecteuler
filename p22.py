@@ -12,9 +12,15 @@ for pos, name in enumerate(names):
     letters_in_name = list(name)
     alphabetical_value = 0
     for letter in letters_in_name:
-        alphabetical_value += letter_values[letter]
+        # alphabetical_value += letter_values[letter]
+        alphabetical_value += ord(letter) - 64
     name_score = alphabetical_value * (pos + 1)
     name_score_sum += name_score
     name_scores.append([name, alphabetical_value, name_score, pos])
 print(name_score_sum)
 
+# short solution from preseren 
+with open("0022_names.txt", "r") as names:
+    names = sorted(names.read().replace('"', ""). split(","))
+    result = sum(sum(ord(j) - 64 for j in name) * i for i, name in enumerate(names, 1))
+    print(result)
